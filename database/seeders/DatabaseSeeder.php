@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tenant;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,11 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Create a demo school (tenant) first, then attach a test user to it.
+        $tenant = Tenant::create([
+            'school_name' => 'Demo School',
+            'address'     => '123 Main Street',
+        ]);
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name'      => 'Test User',
+            'email'     => 'test@example.com',
+            'tenant_id' => $tenant->tenant_id,
         ]);
     }
 }

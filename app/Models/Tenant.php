@@ -15,7 +15,6 @@ class Tenant extends Model
     protected $fillable = [
         'tenant_id',
         'school_name',
-        'last_name',
         'address',
     ];
 }

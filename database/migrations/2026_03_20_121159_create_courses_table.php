@@ -15,7 +15,7 @@ return new class extends Migration
            $table->increments('course_id');
             $table->integer('tenant_id');
             $table->string('course_name', 100);
-            $table->string('teacher_id');
+            $table->unsignedInteger('teacher_id');
         });
     }
 
