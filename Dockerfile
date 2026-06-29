@@ -1,7 +1,7 @@
 FROM php:8.4-cli
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        git curl unzip libpng-dev libonig-dev libxml2-dev libzip-dev libpq-dev \
+        git curl unzip libpng-dev libonig-dev libxml2-dev libzip-dev libpq-dev libicu-dev \
     && docker-php-ext-install pdo pdo_pgsql mbstring exif pcntl bcmath gd zip intl \
     && pecl install redis && docker-php-ext-enable redis \
     && rm -rf /var/lib/apt/lists/*
